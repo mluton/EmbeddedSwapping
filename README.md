@@ -1,19 +1,43 @@
-Demonstration how to add a sub view to a view in an iOS application where the sub view is connected to a nib file.
+Demonstration of how to make a custom container view controller manage multiple child view controllers using storyboards. This solution is heavily based on [Peregrin Planet's Container View Controllers in the Storyboard](http://orderoo.wordpress.com/2012/02/23/container-view-controllers-in-the-storyboard/).
 
-Note, you can use a `UIView` object as a sub view but not a `UIViewController` object. First, create a `UIView` class. Unlike `UIViewController` subclasses you won't have the option to create a nib file to go along with it. This is fine. Create the nib file by itself as a separate step. Open the nib file and go to the Identity Inspector for the top-level view object. Change the custom class to the corresponding view class you just previously created. For this example, place a `UILabel` in the view and create an outlet for it in the corresponding view class. Now you can place this as a sub view in any view you want to and can change the label programatically as well.
+The child view controllers are connected to their container with a custom segue. The custom segue doesn't do anything but exists for purpose of connecting things together in the storyboard.
 
-    // Create an instance of UIView (FooView).
-    FooView *fooView = [[[NSBundle mainBundle] loadNibNamed:@"FooView" owner:self options:nil] objectAtIndex:0];
+The custom container view controller manages the child view controllers in `prepareForSegue:sender`. 
 
-    // Tell it where to go. Otherwise, it'll appear in the upper left corner.
-    fooView.frame = CGRectMake(10, 150, 300, 90);
+```objective-c
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:SegueIdentifierFirst])
+    {
+        if (self.childViewControllers.count > 0) {
+            [self swapFromViewController:[self.childViewControllers objectAtIndex:0] toViewController:segue.destinationViewController];
+        }
+        else {
+            [self addChildViewController:segue.destinationViewController];
+            ((UIViewController *)segue.destinationViewController).view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+            [self.view addSubview:((UIViewController *)segue.destinationViewController).view];
+            [segue.destinationViewController didMoveToParentViewController:self];
+        }
+    }
+    else if ([segue.identifier isEqualToString:SegueIdentifierSecond])
+    {
+        [self swapFromViewController:[self.childViewControllers objectAtIndex:0] toViewController:segue.destinationViewController];
+    }
+}
 
-    // Modify the text of the label.
-    fooView.fooLabel.text = @"Modified Label Text";
+- (void)swapFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController
+{
+    toViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 
-    // Actually add the subview.
-    [self.view addSubview:fooView];
+    [fromViewController willMoveToParentViewController:nil];
+    [self addChildViewController:toViewController];
+    [self transitionFromViewController:fromViewController toViewController:toViewController duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:nil completion:^(BOOL finished) {
+        [fromViewController removeFromParentViewController];
+        [toViewController didMoveToParentViewController:self];
+    }];
+}
+```
 
-Using a nib file may be overkill if it contains nothing but a `UILabel` but you can image how a more complicated nib file might be used in a real application. Comments, Feedback, Suggestions: [Michael Luton](mailto:mluton@gmail.com)
+Download the full project for the complete solution. Comments, Feedback, Suggestions: [Michael Luton](mailto:mluton@gmail.com)
 
 MIT license.
