@@ -7,23 +7,25 @@
 //
 
 #import "ViewController.h"
+#import "ContainerViewController.h"
 
 @interface ViewController ()
-
+@property (nonatomic, weak) ContainerViewController *containerViewController;
+- (IBAction)swapButtonPressed:(id)sender;
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    if ([segue.identifier isEqualToString:@"embedContainer"]) {
+        self.containerViewController = segue.destinationViewController;
+    }
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)swapButtonPressed:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.containerViewController swapViewControllers];
 }
 
 @end
