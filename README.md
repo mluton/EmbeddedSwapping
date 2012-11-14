@@ -1,8 +1,6 @@
 Demonstration of how to make a custom container view controller manage multiple child view controllers using storyboards. This solution is heavily based on [Peregrin Planet's Container View Controllers in the Storyboard](http://orderoo.wordpress.com/2012/02/23/container-view-controllers-in-the-storyboard/).
 
-The child view controllers are connected to their container with a custom segue. The custom segue doesn't do anything but exists for purpose of connecting things together in the storyboard.
-
-The custom container view controller manages the child view controllers in `prepareForSegue:sender`. 
+The child view controllers are connected to their container with a custom segue. The custom segue doesn't do anything but exists for the purpose of connecting things together in the storyboard. The custom container view controller manages the child view controllers in `prepareForSegue:sender`. 
 
 ```objective-c
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
