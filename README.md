@@ -36,6 +36,6 @@ The child view controllers are connected to their container with a custom segue.
 }
 ```
 
-Download the full project for the complete solution. Comments, Feedback, Suggestions: [Michael Luton](mailto:mluton@gmail.com)
+See the [blog post](http://sandmoose.com/post/35714028270/storyboards-with-custom-container-view-controllers) for a more detailed description. Download the full project for the complete solution. Comments, Feedback, Suggestions: [Michael Luton](mailto:mluton@gmail.com)
 
 MIT license.
