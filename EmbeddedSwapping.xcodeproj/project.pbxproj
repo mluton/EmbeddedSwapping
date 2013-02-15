@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E46240E16CEBE34007ACC15 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E46240D16CEBE34007ACC15 /* FirstViewController.m */; };
+		4E46241116CEBE47007ACC15 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E46241016CEBE47007ACC15 /* SecondViewController.m */; };
 		4EA0879D1652C39200A01500 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0879C1652C39200A01500 /* UIKit.framework */; };
 		4EA0879F1652C39200A01500 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0879E1652C39200A01500 /* Foundation.framework */; };
 		4EA087A11652C39200A01500 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA087A01652C39200A01500 /* CoreGraphics.framework */; };
@@ -23,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E46240C16CEBE34007ACC15 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		4E46240D16CEBE34007ACC15 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		4E46240F16CEBE47007ACC15 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		4E46241016CEBE47007ACC15 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		4EA087981652C39200A01500 /* EmbeddedSwapping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmbeddedSwapping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA0879C1652C39200A01500 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4EA0879E1652C39200A01500 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,6 +105,10 @@
 				4EA087BF1652CE1100A01500 /* EmptySegue.h */,
 				4EA087C01652CE1100A01500 /* EmptySegue.m */,
 				4EA087A31652C39200A01500 /* Supporting Files */,
+				4E46240C16CEBE34007ACC15 /* FirstViewController.h */,
+				4E46240D16CEBE34007ACC15 /* FirstViewController.m */,
+				4E46240F16CEBE47007ACC15 /* SecondViewController.h */,
+				4E46241016CEBE47007ACC15 /* SecondViewController.m */,
 			);
 			path = EmbeddedSwapping;
 			sourceTree = "<group>";
@@ -188,6 +198,8 @@
 				4EA087B91652C39200A01500 /* ViewController.m in Sources */,
 				4EA087C11652CE1100A01500 /* EmptySegue.m in Sources */,
 				4EA087C41652CF4500A01500 /* ContainerViewController.m in Sources */,
+				4E46240E16CEBE34007ACC15 /* FirstViewController.m in Sources */,
+				4E46241116CEBE47007ACC15 /* SecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
