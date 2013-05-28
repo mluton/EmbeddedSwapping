@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSString *currentSegueIdentifier;
 @property (strong, nonatomic) FirstViewController *firstViewController;
 @property (strong, nonatomic) SecondViewController *secondViewController;
+@property (assign, nonatomic) BOOL transitionInProgress;
 
 @end
 
@@ -28,6 +29,7 @@
 {
     [super viewDidLoad];
 
+    self.transitionInProgress = NO;
     self.currentSegueIdentifier = SegueIdentifierFirst;
     [self performSegueWithIdentifier:self.currentSegueIdentifier sender:nil];
 }
@@ -73,14 +75,21 @@
 
     [fromViewController willMoveToParentViewController:nil];
     [self addChildViewController:toViewController];
+
     [self transitionFromViewController:fromViewController toViewController:toViewController duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:nil completion:^(BOOL finished) {
         [fromViewController removeFromParentViewController];
         [toViewController didMoveToParentViewController:self];
+        self.transitionInProgress = NO;
     }];
 }
 
 - (void)swapViewControllers
 {
+    if (self.transitionInProgress) {
+        return;
+    }
+
+    self.transitionInProgress = YES;
     self.currentSegueIdentifier = ([self.currentSegueIdentifier isEqualToString:SegueIdentifierFirst]) ? SegueIdentifierSecond : SegueIdentifierFirst;
     [self performSegueWithIdentifier:self.currentSegueIdentifier sender:nil];
 }
