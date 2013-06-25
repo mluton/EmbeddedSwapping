@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -111,11 +111,23 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zCl-t0-GAl">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="7Bv-9Q-5VH"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.35873804549999999" blue="0.72478874360000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="bIC-Sh-vGq" secondAttribute="centerY" type="user" id="LLe-CY-0U2"/>
+                            <constraint firstAttribute="bottom" secondItem="zCl-t0-GAl" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Djh-PF-3Bd"/>
+                            <constraint firstItem="bIC-Sh-vGq" firstAttribute="top" secondItem="MI2-Vf-Dwd" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Rmt-1w-oAX"/>
+                            <constraint firstAttribute="trailing" secondItem="zCl-t0-GAl" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="RpP-OE-nbN"/>
                             <constraint firstAttribute="centerX" secondItem="bIC-Sh-vGq" secondAttribute="centerX" type="user" id="h5h-S6-Nzv"/>
+                            <constraint firstItem="zCl-t0-GAl" firstAttribute="leading" secondItem="MI2-Vf-Dwd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="uBw-LB-pNd"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
