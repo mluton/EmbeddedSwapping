@@ -8,6 +8,6 @@
 
 @interface ContainerViewController : UIViewController
 
-- (void)swapViewControllers;
+- (void)swapViewControllers:(id)sender;
 
 @end

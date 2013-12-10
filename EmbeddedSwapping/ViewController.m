@@ -25,7 +25,7 @@
 
 - (IBAction)swapButtonPressed:(id)sender
 {
-    [self.containerViewController swapViewControllers];
+    [self.containerViewController swapViewControllers:sender];
 }
 
 @end
