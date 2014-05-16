@@ -36,14 +36,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     // Instead of creating new VCs on each seque we want to hang on to existing
     // instances if we have it. Remove the second condition of the following
     // two if statements to get new VC instances instead.
-    if (([segue.identifier isEqualToString:SegueIdentifierFirst]) && !self.firstViewController) {
+    if ([segue.identifier isEqualToString:SegueIdentifierFirst]) {
         self.firstViewController = segue.destinationViewController;
     }
 
-    if (([segue.identifier isEqualToString:SegueIdentifierSecond]) && !self.secondViewController) {
+    if ([segue.identifier isEqualToString:SegueIdentifierSecond]) {
         self.secondViewController = segue.destinationViewController;
     }
 
@@ -73,6 +75,8 @@
 
 - (void)swapFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController
 {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     toViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 
     [fromViewController willMoveToParentViewController:nil];
@@ -87,12 +91,25 @@
 
 - (void)swapViewControllers
 {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+
     if (self.transitionInProgress) {
         return;
     }
 
     self.transitionInProgress = YES;
     self.currentSegueIdentifier = ([self.currentSegueIdentifier isEqualToString:SegueIdentifierFirst]) ? SegueIdentifierSecond : SegueIdentifierFirst;
+    
+    if (([self.currentSegueIdentifier isEqualToString:SegueIdentifierFirst]) && self.firstViewController) {
+        [self swapFromViewController:self.secondViewController toViewController:self.firstViewController];
+        return;
+    }
+    
+    if (([self.currentSegueIdentifier isEqualToString:SegueIdentifierSecond]) && self.secondViewController) {
+        [self swapFromViewController:self.firstViewController toViewController:self.secondViewController];
+        return;
+    }
+
     [self performSegueWithIdentifier:self.currentSegueIdentifier sender:nil];
 }
 
