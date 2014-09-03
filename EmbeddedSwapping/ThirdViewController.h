@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AncestorViewController.h"
 
-@interface ThirdViewController : UIViewController
+@interface ThirdViewController : AncestorViewController
 
 @end

@@ -27,12 +27,18 @@
 {
     [super viewDidLoad];
 	NSLog(@"FirstViewController - viewDidLoad");
+    self.view.userInteractionEnabled = YES;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)saySomething
+{
+    [self.delegate saySomething:@"Hello from the first view controller"];
 }
 
 @end

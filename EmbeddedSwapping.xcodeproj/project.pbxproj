@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E46240E16CEBE34007ACC15 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E46240D16CEBE34007ACC15 /* FirstViewController.m */; };
 		4E46241116CEBE47007ACC15 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E46241016CEBE47007ACC15 /* SecondViewController.m */; };
+		4E6B49CC19B6F03E000547A8 /* AncestorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6B49CB19B6F03E000547A8 /* AncestorViewController.m */; };
 		4E7F1B2818579EE10023F70C /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7F1B2718579EE10023F70C /* ThirdViewController.m */; };
 		4EA0879D1652C39200A01500 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0879C1652C39200A01500 /* UIKit.framework */; };
 		4EA0879F1652C39200A01500 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA0879E1652C39200A01500 /* Foundation.framework */; };
@@ -30,6 +31,8 @@
 		4E46240D16CEBE34007ACC15 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		4E46240F16CEBE47007ACC15 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		4E46241016CEBE47007ACC15 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		4E6B49CA19B6F03E000547A8 /* AncestorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AncestorViewController.h; sourceTree = "<group>"; };
+		4E6B49CB19B6F03E000547A8 /* AncestorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AncestorViewController.m; sourceTree = "<group>"; };
 		4E7F1B2618579EE10023F70C /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		4E7F1B2718579EE10023F70C /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		4EA087981652C39200A01500 /* EmbeddedSwapping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmbeddedSwapping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +110,8 @@
 				4EA087C31652CF4500A01500 /* ContainerViewController.m */,
 				4EA087BF1652CE1100A01500 /* EmptySegue.h */,
 				4EA087C01652CE1100A01500 /* EmptySegue.m */,
+				4E6B49CA19B6F03E000547A8 /* AncestorViewController.h */,
+				4E6B49CB19B6F03E000547A8 /* AncestorViewController.m */,
 				4EA087A31652C39200A01500 /* Supporting Files */,
 				4E46240C16CEBE34007ACC15 /* FirstViewController.h */,
 				4E46240D16CEBE34007ACC15 /* FirstViewController.m */,
@@ -201,6 +206,7 @@
 				4EA087A91652C39200A01500 /* main.m in Sources */,
 				4EA087AD1652C39200A01500 /* AppDelegate.m in Sources */,
 				4E7F1B2818579EE10023F70C /* ThirdViewController.m in Sources */,
+				4E6B49CC19B6F03E000547A8 /* AncestorViewController.m in Sources */,
 				4EA087B91652C39200A01500 /* ViewController.m in Sources */,
 				4EA087C11652CE1100A01500 /* EmptySegue.m in Sources */,
 				4EA087C41652CF4500A01500 /* ContainerViewController.m in Sources */,

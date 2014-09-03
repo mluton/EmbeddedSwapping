@@ -41,4 +41,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)saySomething
+{
+    [self.delegate saySomething:@"Hello from the second view controller"];
+}
+
 @end

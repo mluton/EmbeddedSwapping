@@ -20,7 +20,7 @@
 #define BUTTON_TWO 2
 #define BUTTON_THREE 3
 
-@interface ContainerViewController ()
+@interface ContainerViewController () <SpeakingDelegate>
 
 @property (strong, nonatomic) NSString *currentSegueIdentifier;
 @property (strong, nonatomic) FirstViewController *firstViewController;
@@ -54,14 +54,17 @@
     // two if statements to get new VC instances instead.
     if (([segue.identifier isEqualToString:SegueIdentifierFirst]) && !self.firstViewController) {
         self.firstViewController = segue.destinationViewController;
+        self.firstViewController.delegate = self;
     }
 
     if (([segue.identifier isEqualToString:SegueIdentifierSecond]) && !self.secondViewController) {
         self.secondViewController = segue.destinationViewController;
+        self.secondViewController.delegate = self;
     }
 
     if (([segue.identifier isEqualToString:SegueIdentifierThird]) && !self.thirdViewController) {
         self.thirdViewController = segue.destinationViewController;
+        self.thirdViewController.delegate = self;
     }
     
     switch (buttonTag) {
@@ -157,6 +160,13 @@
     }
 
     [self performSegueWithIdentifier:self.currentSegueIdentifier sender:sender];
+}
+
+#pragma mark - SpeakingDelegate
+
+- (void)saySomething:(NSString *)message
+{
+    NSLog(@"message: %@", message);
 }
 
 @end

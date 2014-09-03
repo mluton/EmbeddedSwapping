@@ -27,6 +27,12 @@
 {
     [super viewDidLoad];
 	NSLog(@"ThirdViewController - viewDidLoad");
+    self.view.userInteractionEnabled = YES;
+}
+
+- (IBAction)saySomething
+{
+    [self.delegate saySomething:@"Hello from the third view controller"];
 }
 
 @end
