@@ -1,5 +1,5 @@
 //
-//  SecondViewController.m
+    //  SecondViewController.m
 //  EmbeddedSwapping
 //
 //  Created by Michael Luton on 2/15/13.
@@ -9,6 +9,8 @@
 #import "SecondViewController.h"
 
 @interface SecondViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -29,10 +31,10 @@
 	NSLog(@"SecondViewController - viewDidLoad");
 }
 
-- (void)didReceiveMemoryWarning
+- (void)doSomethingWithMessage:(NSString*)message
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    self.label.text = message;
 }
 
 @end

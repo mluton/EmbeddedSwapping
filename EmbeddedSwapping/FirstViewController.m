@@ -10,6 +10,8 @@
 
 @interface FirstViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
 @end
 
 @implementation FirstViewController
@@ -29,10 +31,10 @@
 	NSLog(@"FirstViewController - viewDidLoad");
 }
 
-- (void)didReceiveMemoryWarning
+- (void)doSomethingWithMessage:(NSString*)message
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    self.label.text = message;
 }
 
 @end

@@ -20,6 +20,7 @@
 @property (strong, nonatomic) FirstViewController *firstViewController;
 @property (strong, nonatomic) SecondViewController *secondViewController;
 @property (assign, nonatomic) BOOL transitionInProgress;
+@property (weak, nonatomic) id<EmbeddedDelegate> delegate;
 
 @end
 
@@ -42,11 +43,15 @@
     // instances if we have it. Remove the second condition of the following
     // two if statements to get new VC instances instead.
     if ([segue.identifier isEqualToString:SegueIdentifierFirst]) {
+        NSLog(@"GOING TO THE FIRST");
         self.firstViewController = segue.destinationViewController;
+        self.delegate = self.firstViewController;
     }
 
     if ([segue.identifier isEqualToString:SegueIdentifierSecond]) {
+        NSLog(@"GOING TO THE SECOND");
         self.secondViewController = segue.destinationViewController;
+        self.delegate = self.secondViewController;
     }
 
     // If we're going to the first view controller.
@@ -102,15 +107,23 @@
     
     if (([self.currentSegueIdentifier isEqualToString:SegueIdentifierFirst]) && self.firstViewController) {
         [self swapFromViewController:self.secondViewController toViewController:self.firstViewController];
+        self.delegate = self.firstViewController;
         return;
     }
     
     if (([self.currentSegueIdentifier isEqualToString:SegueIdentifierSecond]) && self.secondViewController) {
         [self swapFromViewController:self.firstViewController toViewController:self.secondViewController];
+        self.delegate = self.secondViewController;
         return;
     }
 
     [self performSegueWithIdentifier:self.currentSegueIdentifier sender:nil];
+}
+
+- (void)passDataToEmbeddedViewController:(NSString*)message
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.delegate doSomethingWithMessage:message];
 }
 
 @end

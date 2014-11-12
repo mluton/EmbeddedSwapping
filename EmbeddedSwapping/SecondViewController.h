@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContainerViewController.h"
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController <EmbeddedDelegate>
 
 @end

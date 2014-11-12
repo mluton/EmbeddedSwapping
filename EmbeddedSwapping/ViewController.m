@@ -10,8 +10,12 @@
 #import "ContainerViewController.h"
 
 @interface ViewController ()
+
 @property (nonatomic, weak) ContainerViewController *containerViewController;
+
 - (IBAction)swapButtonPressed:(id)sender;
+- (IBAction)passDataButtonPressed:(id)sender;
+
 @end
 
 @implementation ViewController
@@ -35,6 +39,12 @@
 - (IBAction)swapButtonPressed:(id)sender
 {
     [self.containerViewController swapViewControllers];
+}
+
+- (IBAction)passDataButtonPressed:(id)sender
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.containerViewController passDataToEmbeddedViewController:@"passed data"];
 }
 
 @end
