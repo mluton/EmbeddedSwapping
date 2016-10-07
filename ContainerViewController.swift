@@ -22,34 +22,34 @@ class ContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if self.currentSegueIdentifier == ContainerViewController.SegueIdentifierEmpty {
-            self.currentSegueIdentifier = ContainerViewController.SegueIdentifierFirst
+        if currentSegueIdentifier == ContainerViewController.SegueIdentifierEmpty {
+            currentSegueIdentifier = ContainerViewController.SegueIdentifierFirst
         }
 
-        self.performSegue(withIdentifier: self.currentSegueIdentifier, sender: nil)
+        performSegue(withIdentifier: currentSegueIdentifier, sender: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ContainerViewController.SegueIdentifierFirst {
-            if !self.childViewControllers.isEmpty {
-                self.swapFromViewController(fromViewController: self.childViewControllers[0], toViewController: segue.destination, offset: 44.0)
+            if !childViewControllers.isEmpty {
+                swapFromViewController(fromViewController: childViewControllers[0], toViewController: segue.destination, offset: 44.0)
             } else {
-                segue.destination.view.frame = CGRect(origin: CGPoint.zero, size: self.view.frame.size)
-                self.swapFromViewController(fromViewController: nil, toViewController: segue.destination, offset: 44.0)
+                segue.destination.view.frame = CGRect(origin: CGPoint.zero, size: view.frame.size)
+                swapFromViewController(fromViewController: nil, toViewController: segue.destination, offset: 44.0)
             }
         } else if segue.identifier == ContainerViewController.SegueIdentifierSecond {
-            if !self.childViewControllers.isEmpty {
-                self.swapFromViewController(fromViewController: self.childViewControllers[0], toViewController: segue.destination, offset: 44.0)
+            if !childViewControllers.isEmpty {
+                swapFromViewController(fromViewController: childViewControllers[0], toViewController: segue.destination, offset: 44.0)
             } else {
-                segue.destination.view.frame = CGRect(origin: CGPoint.zero, size: self.view.frame.size)
-                self.swapFromViewController(fromViewController: nil, toViewController: segue.destination, offset: 44.0)
+                segue.destination.view.frame = CGRect(origin: CGPoint.zero, size: view.frame.size)
+                swapFromViewController(fromViewController: nil, toViewController: segue.destination, offset: 44.0)
             }
         }
     }
 
     func swapFromViewController(fromViewController: UIViewController?, toViewController: UIViewController, offset: CGFloat) -> Void {
 
-        toViewController.view.frame = CGRect(x: 0, y: 0 + offset, width: self.view.frame.size.width, height: self.view.frame.size.height - offset)
+        toViewController.view.frame = CGRect(x: 0, y: 0 + offset, width: view.frame.size.width, height: view.frame.size.height - offset)
 
         // DEBUG
         print("Frame: \(toViewController.view.frame)")
@@ -65,20 +65,20 @@ class ContainerViewController: UIViewController {
             }
         } else {
             addChildViewController(toViewController)
-            self.view.addSubview(toViewController.view)
+            view.addSubview(toViewController.view)
             toViewController.didMove(toParentViewController: self)
         }
 
     }
 
     func swapViewControllers() -> Void {
-        if self.currentSegueIdentifier == ContainerViewController.SegueIdentifierFirst {
-            self.currentSegueIdentifier = ContainerViewController.SegueIdentifierSecond
+        if currentSegueIdentifier == ContainerViewController.SegueIdentifierFirst {
+            currentSegueIdentifier = ContainerViewController.SegueIdentifierSecond
         } else {
-            self.currentSegueIdentifier = ContainerViewController.SegueIdentifierFirst
+            currentSegueIdentifier = ContainerViewController.SegueIdentifierFirst
         }
 
-        self.performSegue(withIdentifier: self.currentSegueIdentifier, sender: nil)
+        performSegue(withIdentifier: currentSegueIdentifier, sender: nil)
     }
     
 }
